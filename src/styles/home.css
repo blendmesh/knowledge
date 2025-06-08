@@ -1,0 +1,79 @@
+.home-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.home-section {
+  margin-bottom: 48px;
+}
+
+.carousel-courses {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.carousel-course-card {
+  min-width: 220px;
+  max-width: 260px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 18px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 180px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.carousel-course-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.carousel-course-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.carousel-course-desc {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.carousel-course-meta {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-course-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: stretch;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.carousel-course-btn:hover {
+  background: #444;
+}
