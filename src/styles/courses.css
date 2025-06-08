@@ -23,6 +23,7 @@
   flex-direction: column;
   align-items: flex-start;
   min-height: 180px;
+  max-width: 440px;
   transition: box-shadow 0.2s, transform 0.2s;
 }
 

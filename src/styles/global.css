@@ -10,8 +10,12 @@ html, body, #root {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   background: #fafafa;
   color: #222;
-  padding-top: 24px;
 }
+
+body {
+  padding-top: 60px; /* ajuste para a altura do seu header */
+}
+
 
 body, #root {
   display: flex;

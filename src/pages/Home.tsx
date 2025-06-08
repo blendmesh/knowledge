@@ -3,7 +3,7 @@ import { mockCourses } from '@/constants/courses';
 import { mockPosts } from '@/constants/blog';
 import '@/styles/home.css';
 import '@/styles/blog.css';
-import { CarouselDemo } from '@/components/Home/CarouselDemo';
+import { CarouselHome } from '@/components/Home/CarouselHome';
 
 const Home: React.FC = () => {
   // Últimos 5 cursos e artigos (ordem decrescente por id)
@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     <div className="home-page">
       <section className="home-section">
         <h2>Últimos Cursos</h2>
-        <CarouselDemo items={latestCourses} className="carousel-courses" />
+        <CarouselHome items={latestCourses} className="carousel-courses" />
       </section>
       
       <section className="home-section">

@@ -17,12 +17,12 @@ type Course = {
   url: string;
 };
 
-type CarouselDemoProps = {
+type CarouselHomeProps = {
   items: Course[];
   className?: string;
 };
 
-export function CarouselDemo({ items, className }: CarouselDemoProps) {
+export function CarouselHome({ items, className }: CarouselHomeProps) {
   return (
     <div className={`w-full max-w-4xl mx-auto`}>
       <Carousel>

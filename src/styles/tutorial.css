@@ -54,3 +54,156 @@
 .tutorial-menu-item:hover {
     background-color: #e0e0e0;
 }
+
+/* tutorial details */
+
+/* Container principal */
+.tutorial-detail {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Título principal */
+.tutorial-detail h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #22223b;
+}
+
+/* Metadados */
+.tutorial-meta {
+  font-size: 1rem;
+  color: #4a4e69;
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tutorial-tool,
+.tutorial-level,
+.tutorial-date {
+  font-weight: 500;
+}
+
+.dot {
+  font-size: 1.2em;
+  color: #bfc0c0;
+  margin: 0 0.3em;
+}
+
+/* Tags */
+.tutorial-tags {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tutorial-tag {
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 0.95rem;
+  padding: 0.2em 0.7em;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Markdown */
+.tutorial-markdown {
+  font-size: 1.08rem;
+  color: #22223b;
+  line-height: 1.7;
+}
+
+.tutorial-markdown h1,
+.tutorial-markdown h2,
+.tutorial-markdown h3 {
+  color: #22223b;
+  font-weight: 700;
+}
+
+.tutorial-markdown h1 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tutorial-markdown h2 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.tutorial-markdown h3 {
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.tutorial-markdown ul,
+.tutorial-markdown ol {
+  margin-bottom: 1.2rem;
+  padding-left: 1.5rem;
+}
+
+.tutorial-markdown li {
+  margin-bottom: 0.3rem;
+}
+
+.tutorial-markdown img {
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  max-width: 100%;
+  max-height: 350px;
+}
+
+.tutorial-markdown pre {
+  background: #23272e;
+  color: #f8f8f2;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  font-size: 1rem;
+}
+
+/* .tutorial-markdown code {
+  background: #f3f4f6;
+  color: #22223b;
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  font-size: 0.98em;
+} */
+
+.tutorial-markdown blockquote {
+  border-left: 4px solid #60a5fa;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 0.7em 1em;
+  margin: 1.2em 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+.tutorial-markdown a {
+  color: #2563eb;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.tutorial-markdown a:hover {
+  color: #1e40af;
+}
+
+.tutorial-markdown p {
+  margin-bottom: 1.1em;
+}

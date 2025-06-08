@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { mockVideos } from '@/constants/videos';
 import '@/styles/videos.css';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink } from "@/components/ui/pagination";
 
-// Adicione o campo "tool" e "date" nos seus vídeos do mockVideos para o filtro funcionar corretamente.
+const VIDEOS_PER_PAGE = 10;
 
 const tools = [
   { value: '', label: 'Todas' },
@@ -20,8 +21,9 @@ const sortOptions = [
 const Videos: React.FC = () => {
   const [tool, setTool] = useState('');
   const [sort, setSort] = useState<'asc' | 'desc'>('desc');
+  const [page, setPage] = useState(1);
 
-  // Adapte para garantir que todos os vídeos tenham o campo "tool" e "date"
+  // Filtragem e ordenação
   const filteredVideos = useMemo(() => {
     let videos = mockVideos;
     if (tool) {
@@ -36,6 +38,19 @@ const Videos: React.FC = () => {
           : new Date(a.date).getTime() - new Date(b.date).getTime();
       });
     return videos;
+  }, [tool, sort]);
+
+  // Paginação
+  const pageCount = Math.ceil(filteredVideos.length / VIDEOS_PER_PAGE);
+
+  const paginatedVideos = useMemo(() => {
+    const start = (page - 1) * VIDEOS_PER_PAGE;
+    return filteredVideos.slice(start, start + VIDEOS_PER_PAGE);
+  }, [filteredVideos, page]);
+
+  // Resetar para página 1 ao filtrar/ordenar
+  React.useEffect(() => {
+    setPage(1);
   }, [tool, sort]);
 
   return (
@@ -55,7 +70,7 @@ const Videos: React.FC = () => {
         </select>
       </div>
       <div className="videos-grid-multi">
-        {filteredVideos.map(video => (
+        {paginatedVideos.map(video => (
           <div className="video-card" key={video.id}>
             <a href={video.url} target="_blank" rel="noopener noreferrer">
               <div className="video-thumb">
@@ -79,6 +94,24 @@ const Videos: React.FC = () => {
         ))}
       </div>
       {filteredVideos.length === 0 && <p>Nenhum vídeo encontrado.</p>}
+
+      {/* Paginação */}
+      {pageCount > 1 && (
+        <Pagination className="mt-8">
+          <PaginationContent>
+            {Array.from({ length: pageCount }).map((_, idx) => (
+              <PaginationItem key={idx}>
+                <PaginationLink
+                  isActive={page === idx + 1}
+                  onClick={() => setPage(idx + 1)}
+                >
+                  {idx + 1}
+                </PaginationLink>
+              </PaginationItem>
+            ))}
+          </PaginationContent>
+        </Pagination>
+      )}
     </div>
   );
 };

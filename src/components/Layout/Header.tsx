@@ -13,11 +13,12 @@ const Header: React.FC = () => (
           </span>
       </Link>
       <nav>
-        <Link to="/courses">Cursos</Link>
-        <Link to="/tutorials">Tutoriais</Link>
-        <Link to="/blog">Artigos</Link>
-        <Link to="/videos">Vídeos</Link>
-        <Link to="/playground">Playground</Link>
+        <Link to="/blog" className="nav-link">Artigos</Link>
+        <Link to="/trilhas" className="nav-link">Trilhas</Link>
+        <Link to="/courses" className="nav-link">Cursos</Link>
+        <Link to="/tutorials" className="nav-link">Tutoriais</Link>
+        <Link to="/videos" className="nav-link">Vídeos</Link>
+        <Link to="/playground" className="nav-link">Playground</Link>
       </nav>
     </div>
   </header>

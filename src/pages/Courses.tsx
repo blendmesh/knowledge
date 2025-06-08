@@ -1,31 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { mockCourses } from '@/constants/courses';
+import { tools, levels, trilhas } from '@/constants/fields'; // use os filtros do arquivo fields
 import '@/styles/courses.css';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink } from "@/components/ui/pagination";
-
-// Exemplo de trilhas (agrupamentos de cursos)
-const trilhas = [
-  { value: '', label: 'Todas as Trilhas' },
-  { value: 'terraform_basico', label: 'Terraform Básico', courses: [1, 6, 14, 18, 22, 26, 30, 34, 38] },
-  { value: 'cloudformation_completo', label: 'CloudFormation Completo', courses: [2, 7, 11, 15, 19, 23, 27, 31, 35, 39] },
-  { value: 'ansible_essencial', label: 'Ansible Essencial', courses: [4, 8, 12, 16, 20, 24, 28, 32, 36, 40] },
-  { value: 'cli_devops', label: 'CLI para DevOps', courses: [5, 9, 13, 17, 21, 25, 29, 33, 37] },
-];
-
-const tools = [
-  { value: '', label: 'Todas as Ferramentas' },
-  { value: 'Terraform', label: 'Terraform' },
-  { value: 'CloudFormation', label: 'CloudFormation' },
-  { value: 'Ansible', label: 'Ansible' },
-  { value: 'CLI', label: 'CLI' },
-];
-
-const levels = [
-  { value: '', label: 'Todos os Níveis' },
-  { value: 'iniciante', label: 'Iniciante' },
-  { value: 'intermediario', label: 'Intermediário' },
-  { value: 'avancado', label: 'Avançado' },
-];
+import { useNavigate } from "react-router-dom";
 
 const COURSES_PER_PAGE = 9;
 
@@ -34,16 +12,14 @@ const Courses: React.FC = () => {
   const [level, setLevel] = useState('');
   const [trilha, setTrilha] = useState('');
   const [page, setPage] = useState(1);
+  const navigate = useNavigate();
 
   const filteredCourses = useMemo(() => {
     let courses = mockCourses;
 
     // Filtra por trilha se selecionada
     if (trilha) {
-      const trilhaObj = trilhas.find(t => t.value === trilha);
-      if (trilhaObj && trilhaObj.courses) {
-        courses = courses.filter(course => trilhaObj.courses.includes(course.id));
-      }
+      courses = courses.filter(course => course.trilha === trilha);
     }
 
     // Filtra por ferramenta
@@ -76,18 +52,21 @@ const Courses: React.FC = () => {
       <h1>Cursos</h1>
       <div className="courses-controls">
         <select value={trilha} onChange={e => setTrilha(e.target.value)}>
+          <option value="">Todas as Trilhas</option>
           {trilhas.map(t => (
-            <option key={t.value} value={t.value}>{t.label}</option>
+            <option key={t} value={t}>{t}</option>
           ))}
         </select>
         <select value={tool} onChange={e => setTool(e.target.value)}>
+          <option value="">Todas as Ferramentas</option>
           {tools.map(t => (
-            <option key={t.value} value={t.value}>{t.label}</option>
+            <option key={t} value={t}>{t}</option>
           ))}
         </select>
         <select value={level} onChange={e => setLevel(e.target.value)}>
+          <option value="">Todos os Níveis</option>
           {levels.map(l => (
-            <option key={l.value} value={l.value}>{l.label}</option>
+            <option key={l} value={l}>{l.charAt(0).toUpperCase() + l.slice(1)}</option>
           ))}
         </select>
       </div>
@@ -101,7 +80,12 @@ const Courses: React.FC = () => {
               <span className="dot">•</span>
               <span className="course-rect-level">{course.level.charAt(0).toUpperCase() + course.level.slice(1)}</span>
             </div>
-            <button className="course-rect-btn">Ir para o curso</button>
+            <button
+              className="course-rect-btn"
+              onClick={() => navigate(`/courses/${course.id}`)}
+            >
+              Ir para o curso
+            </button>
           </div>
         ))}
       </div>
