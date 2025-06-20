@@ -33,12 +33,11 @@ export function CarouselHome({ items, className }: CarouselHomeProps) {
                 key={course.id}
                 className="basis-1/3 max-w-[33.3333%] flex-shrink-0"
               >
-                <Card className="w-full shadow-none border-none h-full">
-                  <CardContent className="p-0 w-full h-full flex flex-col">
+                <Card className="w-full shadow border h-full">
+                  <CardContent className="w-full h-full flex flex-col items-center">
                     <div className="flex flex-col flex-1">
                       <div>
                         <div className="carousel-course-title">{course.title}</div>
-                        <div className="carousel-course-desc">{course.description}</div>
                       </div>
                       <div className="flex-1" />
                       <div>

@@ -19,6 +19,8 @@ import VideosEditor from './components/Video/VideosEditor';
 import TrilhaEditor from './components/Trilha/TrilhaEditor';
 import Trilhas from './pages/Trilhas';
 import TrilhaProgress from './components/Trilha/TrilhaProgress';
+import Concluido from './components/Course/Concluido';
+import RoteiroEditor from './components/Roteiro/Roteiro';
 
 const App: React.FC = () => (
   <BrowserRouter
@@ -38,6 +40,7 @@ const App: React.FC = () => (
         <Route path="/courses-editor" element={<CourseEditor />} />
         <Route path="/courses/:id" element={<CoursePage />} />
         <Route path="/classroom/:id/:tutorialId?" element={<Classroom />} />
+        <Route path="/classroom/:id/concluido" element={<Concluido />} />
         <Route path="/tutorials" element={<Tutorials />} />
         <Route path="/tutorials/:id" element={<TutorialDetail />} />
         <Route path="/tutorials-editor" element={<TutorialEditor />} />
@@ -46,6 +49,7 @@ const App: React.FC = () => (
         <Route path="/trilhas" element={<Trilhas />} />
         <Route path="/trilhas-editor" element={<TrilhaEditor />} />
         <Route path="/trilhas-progress/:id/:itemIdx?" element={<TrilhaProgress />} />
+        <Route path="/roteiros-editor" element={<RoteiroEditor />} />
       </Routes>
     </main>
     <Footer />

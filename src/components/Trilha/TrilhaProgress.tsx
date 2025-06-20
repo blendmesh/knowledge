@@ -9,7 +9,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-
 const PLACEHOLDER_IMAGE = "https://placehold.co/600x300?text=Conteúdo";
 
 function getProgressKey(trilhaId: string) {
